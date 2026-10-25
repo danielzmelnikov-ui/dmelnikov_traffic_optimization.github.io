@@ -2,7 +2,7 @@
 
 Independent research by **Daniel Melnikov** · Advisor: Dr. Mark Vondracek · Evanston Township High School
 
-**Live project site:** https://danielzmelnikov-ui.github.io/traffic-tracker/
+**Live project site:** https://danielzmelnikov-ui.github.io/dmelnikov_traffic_optimization.github.io/
 
 ## What this is
 
