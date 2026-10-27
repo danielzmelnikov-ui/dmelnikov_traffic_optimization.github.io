@@ -1,5 +1,224 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Daniel Melnikov's traffic signal optimization research: observed Evanston vehicle counts, adaptive timing simulations, and transparent economic-impact scenarios."><title>Traffic Signal Optimization | Daniel Melnikov</title><style>
-:root{--bg:#081727;--card:#10283b;--ink:#f2f8fd;--muted:#aec4d4;--teal:#52e0cb;--line:#294353}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Arial}a{color:var(--teal)}.wrap{max-width:1120px;margin:auto;padding:0 24px}nav{display:flex;justify-content:space-between;align-items:center;padding:25px 0;gap:15px}nav .brand{font-size:14px;font-weight:800;letter-spacing:.07em}nav a{font-size:14px;text-decoration:none}.hero{padding:70px 0 75px;background:radial-gradient(circle at 86% 15%,#126c72 0,transparent 38%)}.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:800}.hero h1{font-size:clamp(45px,7.4vw,88px);line-height:1.04;max-width:880px;letter-spacing:-.055em;margin:16px 0 20px}.hero p{max-width:710px;color:var(--muted);font-size:19px}.buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;border-radius:10px;padding:12px 19px;font-weight:750;text-decoration:none;background:var(--teal);color:#05202d}.btn.alt{background:transparent;color:var(--ink);border:1px solid #60818c}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:55px}.stat{background:#153448de;padding:25px;border:1px solid #2a6372;border-radius:16px}.stat strong{font-size:clamp(31px,4vw,56px);color:var(--teal);display:block;letter-spacing:-.05em}.stat span{font-size:13px;color:#dae9ee}.stat small{display:block;font-size:11px;color:#acc9cc;margin-top:8px}section{padding:70px 0;border-top:1px solid var(--line)}h2{font-size:clamp(28px,4vw,43px);letter-spacing:-.04em;line-height:1.1}h3{font-size:19px}p{color:#c1d5df}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel{padding:28px;background:var(--card);border:1px solid var(--line);border-radius:17px}.panel.light{background:#fff;color:#152d3e}.panel.light p{color:#37566a}.chart{display:block;width:100%;border-radius:12px}.muted{color:var(--muted)}.tag{border:1px solid #345866;border-radius:50px;padding:5px 10px;font-size:12px;color:var(--teal)}.tags{display:flex;flex-wrap:wrap;gap:9px}.assumptions{margin-top:20px;font-size:12px;color:#aac3cd}.calculator{display:grid;grid-template-columns:1fr 1fr;gap:28px}.field{margin-bottom:17px}.field label{display:flex;justify-content:space-between;font-size:14px;margin-bottom:7px;color:#d8ebf3}.field input{width:100%;accent-color:#52e0cb}.big{font-size:clamp(36px,5vw,62px);font-weight:850;color:var(--teal);line-height:1.05}.impactrow{border-bottom:1px solid var(--line);padding:18px 0}.impactrow span{display:block;color:#b8d1dd;font-size:13px;margin-top:5px}.notice{border-left:4px solid var(--teal);padding:14px 19px;background:#123342;color:#d4e8ed;margin-top:24px}footer{padding:32px 0;font-size:13px;color:#acc6d1}@media(max-width:750px){.stats,.grid,.calculator{grid-template-columns:1fr}.hero{padding:45px 0}.stat strong{font-size:45px}}
-</style></head><body><div class="wrap"><nav><span class="brand">DANIEL MELNIKOV / RESEARCH</span><a href="Traffic_Signal_Optimization_Full_Report.pdf">Full research PDF ↗</a></nav></div><header class="hero"><div class="wrap"><div class="eyebrow">Independent research · Evanston, Illinois · Model-based findings</div><h1>Smarter signals.<br>Less wasted time.</h1><p>What happens when traffic lights respond to actual queues instead of relying on static timing? A field-informed traffic simulation explores the impact on congestion and the potential economic cost of waiting.</p><div class="buttons"><a class="btn" href="#results">Explore results ↓</a><a class="btn alt" href="Traffic_Signal_Optimization_Full_Report.pdf">Read full 24-page report</a></div><div class="stats"><div class="stat"><strong>3,122</strong><span>Vehicle arrivals observed</span><small>One Evanston morning observation</small></div><div class="stat"><strong>42.02%</strong><span>Less modeled queue delay</span><small>Queue-aware vs optimized fixed signal</small></div><div class="stat"><strong>23.3h</strong><span>Modeled vehicle-delay hours avoided</span><small>During the one-hour simulation</small></div></div></div></header><main><section id="results"><div class="wrap"><div class="eyebrow">01 / What the model found</div><h2>Better information changes the outcome.</h2><p>The baseline is not an intentionally poor 50/50 plan. It is a demand-optimized fixed split. The queue-aware algorithm still reduced cumulative modeled delay by 42.02% compared with that fixed comparator, and by 16.77% compared with arrival-only adaptive timing.</p><div class="grid"><div class="panel light"><img class="chart" src="assets/model_comparison.png" alt="Modeled queue delay for three signal strategies"></div><div class="panel"><h3>Why queue awareness matters</h3><p>Both adaptive models use recent arrivals. The queue-aware controller also accounts for existing queues and discharge conditions, so it can respond to a backlog that arrivals alone cannot reveal.</p><div class="tags"><span class="tag">Observed traffic input</span><span class="tag">Two-phase model</span><span class="tag">Simulation only</span></div><div class="notice">These numbers are not results from a deployed signal or live camera. The camera architecture remains proposed.</div></div></div></div></section><section id="economics"><div class="wrap"><div class="eyebrow">02 / Economic stakes</div><h2>What could time lost at a red light be worth?</h2><p>Applying illustrative economic assumptions to the model's 23.3 saved vehicle-hours yields approximately <b>$709 per comparable peak hour</b> in combined traveler time value and estimated fuel cost. This is a scenario, not measured financial savings or a municipal budget benefit.</p><div class="grid"><div class="panel light"><img class="chart" src="assets/economic_scale.png" alt="Hypothetical annual economic value scaled across 1 to 100 intersections"></div><div class="panel"><div class="eyebrow">Hypothetical 25-site scenario</div><div class="big" id="feature-value">$8.86M</div><p>Modeled annual traveler-time value plus fuel proxy assuming <b>25 matching intersections, 500 comparable peak hours each</b>. Neither the number of matching sites nor the repeated hourly savings have been validated.</p><p class="muted">The point is to show why the economics could matter at network scale, and why real-world validation is necessary.</p></div></div><h3>Change the assumptions yourself</h3><div class="calculator"><div class="panel"><div class="field"><label for="sites">Equivalent intersections <b id="sites-v">25</b></label><input id="sites" type="range" min="1" max="100" value="25"></div><div class="field"><label for="hours">Comparable hours per site/year <b id="hours-v">500</b></label><input id="hours" type="range" min="100" max="1500" step="50" value="500"></div><div class="field"><label for="vot">Value of travel time ($/person-hour) <b id="vot-v">$21.10</b></label><input id="vot" type="range" min="10" max="35" step="0.1" value="21.1"></div><div class="field"><label for="occ">Occupancy (persons/vehicle) <b id="occ-v">1.4</b></label><input id="occ" type="range" min="1" max="2.5" step="0.1" value="1.4"></div><p class="assumptions">Fixed illustrative assumptions: 0.25 gallons per avoided idle-hour, $3.50/gallon, 8.887 kg CO₂/gallon. All values are adjustable scenarios except the field-informed simulated delay difference.</p></div><div class="panel"><div class="eyebrow">Calculated hypothetical annual impact</div><div class="impactrow"><div class="big" id="money">$8.86M</div><span>Travel-time value + fuel cost, not municipal revenue</span></div><div class="impactrow"><div class="big" id="time">407.8K</div><span>Person-hours of modeled time value</span></div><div class="impactrow"><div class="big" id="emissions">647</div><span>Metric tons of CO₂ proxy, not measured emissions</span></div></div></div><div class="notice"><b>Interpretation:</b> This calculator multiplies a single observed-hour model difference by hypothetical equivalent sites and hours. Actual cities have different geometry, demand, safety constraints, vehicle mixes and equipment costs. It does not establish a real-world cost-benefit case.</div></div></section><section><div class="wrap"><div class="eyebrow">03 / More evidence</div><h2>Don't trust a single headline number.</h2><div class="grid"><div class="panel light"><img class="chart" src="assets/economic_sensitivity.png" alt="Value-of-time sensitivity analysis"><p>Sensitivity of the modeled time value to the hourly value placed on travel time.</p></div><div class="panel light"><img class="chart" src="assets/emissions_scale.png" alt="Illustrative avoided tailpipe emissions across site counts"><p>Conditional CO₂ proxy derived from avoided idling assumptions, not directly measured emissions.</p></div></div></div></section><section><div class="wrap"><div class="eyebrow">04 / Full study</div><h2>Read the methodology. Check the limitations.</h2><p>Includes the Evanston observations, mathematical derivations, fixed and adaptive control comparisons, nine hypothetical road-geometry scenarios, and the additional economic sensitivity appendix.</p><div class="buttons"><a class="btn" href="Traffic_Signal_Optimization_Full_Report.pdf">Download complete research PDF</a><a class="btn alt" href="Traffic_Signal_Optimization_Original_21pages.pdf">Earlier expanded report</a></div><p class="assumptions">Sources for economic assumptions: US DOT 2025 Benefit-Cost Analysis Guidance ($21.10/person-hour, 2023 USD); US EPA greenhouse gas equivalencies (8.887 kg CO₂/gallon). Occupancy, fuel use, fuel price, and scale are assumptions. This is independent student research, not a City of Evanston pilot.</p></div></section></main><div class="wrap"><footer>Daniel Melnikov · Independent research · <a href="https://github.com/danielzmelnikov-ui">GitHub</a></footer></div><script>
-const $=id=>document.getElementById(id);function compact(n){return n>=1e6?(n/1e6).toFixed(2)+'M':n>=1000?(n/1000).toFixed(1)+'K':Math.round(n).toLocaleString()};function calc(){const sites=+$('sites').value,hours=+$('hours').value,vot=+$('vot').value,occ=+$('occ').value,delta=(199626-115736)/3600,vehicleHours=delta*sites*hours,personHours=vehicleHours*occ,money=personHours*vot+vehicleHours*.25*3.5,co2=vehicleHours*.25*8.887/1000;$('sites-v').textContent=sites;$('hours-v').textContent=hours;$('vot-v').textContent='$'+vot.toFixed(2);$('occ-v').textContent=occ.toFixed(1);$('money').textContent='$'+compact(money);$('time').textContent=compact(personHours);$('emissions').textContent=compact(co2)}['sites','hours','vot','occ'].forEach(id=>$(id).addEventListener('input',calc));calc();
-</script></body></html>
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Daniel Melnikov's traffic signal optimization research: observed Evanston vehicle counts, adaptive timing simulations, and transparent economic-impact scenarios.">
+<title>Traffic Signal Optimization | Daniel Melnikov</title>
+<style>
+:root{--bg:#081727;--card:#10283b;--ink:#f2f8fd;--muted:#aec4d4;--teal:#52e0cb;--line:#294353}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Arial}
+a{color:var(--teal)}
+.wrap{max-width:1120px;margin:auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:25px 0;gap:15px}
+nav .brand{font-size:14px;font-weight:800;letter-spacing:.07em}
+nav a{font-size:14px;text-decoration:none}
+.hero{padding:70px 0 75px;background:radial-gradient(circle at 86% 15%,#126c72 0,transparent 38%)}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:800}
+.hero h1{font-size:clamp(45px,7.4vw,88px);line-height:1.04;max-width:880px;letter-spacing:-.055em;margin:16px 0 20px}
+.hero p{max-width:710px;color:var(--muted);font-size:19px}
+.buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;border-radius:10px;padding:12px 19px;font-weight:750;text-decoration:none;background:var(--teal);color:#05202d}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid #60818c}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:55px}
+.stat{background:#153448de;padding:25px;border:1px solid #2a6372;border-radius:16px}
+.stat strong{font-size:clamp(31px,4vw,56px);color:var(--teal);display:block;letter-spacing:-.05em}
+.stat span{font-size:13px;color:#dae9ee}
+.stat small{display:block;font-size:11px;color:#acc9cc;margin-top:8px}
+section{padding:70px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(28px,4vw,43px);letter-spacing:-.04em;line-height:1.1}
+h3{font-size:19px}
+p{color:#c1d5df}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{padding:28px;background:var(--card);border:1px solid var(--line);border-radius:17px}
+.panel.light{background:#fff;color:#152d3e}
+.panel.light p{color:#37566a}
+.chart{display:block;width:100%;border-radius:12px}
+.muted{color:var(--muted)}
+.tag{border:1px solid #345866;border-radius:50px;padding:5px 10px;font-size:12px;color:var(--teal)}
+.tags{display:flex;flex-wrap:wrap;gap:9px}
+.assumptions{margin-top:20px;font-size:12px;color:#aac3cd}
+.calculator{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.field{margin-bottom:17px}
+.field label{display:flex;justify-content:space-between;font-size:14px;margin-bottom:7px;color:#d8ebf3}
+.field input{width:100%;accent-color:#52e0cb}
+.big{font-size:clamp(36px,5vw,62px);font-weight:850;color:var(--teal);line-height:1.05}
+.impactrow{border-bottom:1px solid var(--line);padding:18px 0}
+.impactrow span{display:block;color:#b8d1dd;font-size:13px;margin-top:5px}
+.notice{border-left:4px solid var(--teal);padding:14px 19px;background:#123342;color:#d4e8ed;margin-top:24px}
+footer{padding:32px 0;font-size:13px;color:#acc6d1}
+@media(max-width:750px){
+.stats,.grid,.calculator{grid-template-columns:1fr}
+.hero{padding:45px 0}
+.stat strong{font-size:45px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<span class="brand">DANIEL MELNIKOV / RESEARCH</span>
+<a href="Daniel_Melnikov_Traffic_Research_Full.pdf">Full research PDF ↗</a>
+</nav>
+</div>
+
+<header class="hero">
+<div class="wrap">
+<div class="eyebrow">Independent research · Evanston, Illinois · Model-based findings</div>
+<h1>Smarter signals.<br>Less wasted time.</h1>
+<p>What happens when traffic lights respond to actual queues instead of relying on static timing? A field-informed traffic simulation explores the impact on congestion and the potential economic cost of waiting.</p>
+<div class="buttons">
+<a class="btn" href="#results">Explore results ↓</a>
+<a class="btn alt" href="Daniel_Melnikov_Traffic_Research_Full.pdf">Read full 24-page report</a>
+</div>
+<div class="stats">
+<div class="stat"><strong>3,122</strong><span>Vehicle arrivals observed</span><small>One Evanston morning observation</small></div>
+<div class="stat"><strong>42.02%</strong><span>Less modeled queue delay</span><small>Queue-aware vs optimized fixed signal</small></div>
+<div class="stat"><strong>23.3h</strong><span>Modeled vehicle-delay hours avoided</span><small>During the one-hour simulation</small></div>
+</div>
+</div>
+</header>
+
+<main>
+<section id="results">
+<div class="wrap">
+<div class="eyebrow">01 / What the model found</div>
+<h2>Better information changes the outcome.</h2>
+<p>The baseline is not an intentionally poor 50/50 plan. It is a demand-optimized fixed split. The queue-aware algorithm still reduced cumulative modeled delay by 42.02% compared with that fixed comparator, and by 16.77% compared with arrival-only adaptive timing.</p>
+<div class="grid">
+<div class="panel light">
+<img class="chart" src="assets/model_comparison.png" alt="Modeled queue delay for three signal strategies">
+</div>
+<div class="panel">
+<h3>Why queue awareness matters</h3>
+<p>Both adaptive models use recent arrivals. The queue-aware controller also accounts for existing queues and discharge conditions, so it can respond to a backlog that arrivals alone cannot reveal.</p>
+<div class="tags">
+<span class="tag">Observed traffic input</span>
+<span class="tag">Two-phase model</span>
+<span class="tag">Simulation only</span>
+</div>
+<div class="notice">These numbers are not results from a deployed signal or live camera. The camera architecture remains proposed.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="economics">
+<div class="wrap">
+<div class="eyebrow">02 / Economic stakes</div>
+<h2>What could time lost at a red light be worth?</h2>
+<p>Applying illustrative economic assumptions to the model's 23.3 saved vehicle-hours yields approximately <b>$709 per comparable peak hour</b> in combined traveler time value and estimated fuel cost. This is a scenario, not measured financial savings or a municipal budget benefit.</p>
+<div class="grid">
+<div class="panel light">
+<img class="chart" src="assets/economic_scale.png" alt="Hypothetical annual economic value scaled across 1 to 100 intersections">
+</div>
+<div class="panel">
+<div class="eyebrow">Hypothetical 25-site scenario</div>
+<div class="big" id="feature-value">$8.86M</div>
+<p>Modeled annual traveler-time value plus fuel proxy assuming <b>25 matching intersections, 500 comparable peak hours each</b>. Neither the number of matching sites nor the repeated hourly savings have been validated.</p>
+<p class="muted">The point is to show why the economics could matter at network scale, and why real-world validation is necessary.</p>
+</div>
+</div>
+
+<h3>Change the assumptions yourself</h3>
+<div class="calculator">
+<div class="panel">
+<div class="field">
+<label for="sites">Equivalent intersections <b id="sites-v">25</b></label>
+<input id="sites" type="range" min="1" max="100" value="25">
+</div>
+<div class="field">
+<label for="hours">Comparable hours per site/year <b id="hours-v">500</b></label>
+<input id="hours" type="range" min="100" max="1500" step="50" value="500">
+</div>
+<div class="field">
+<label for="vot">Value of travel time ($/person-hour) <b id="vot-v">$21.10</b></label>
+<input id="vot" type="range" min="10" max="35" step="0.1" value="21.1">
+</div>
+<div class="field">
+<label for="occ">Occupancy (persons/vehicle) <b id="occ-v">1.4</b></label>
+<input id="occ" type="range" min="1" max="2.5" step="0.1" value="1.4">
+</div>
+<p class="assumptions">Fixed illustrative assumptions: 0.25 gallons per avoided idle-hour, $3.50/gallon, 8.887 kg CO₂/gallon. All values are adjustable scenarios except the field-informed simulated delay difference.</p>
+</div>
+<div class="panel">
+<div class="eyebrow">Calculated hypothetical annual impact</div>
+<div class="impactrow">
+<div class="big" id="money">$8.86M</div>
+<span>Travel-time value + fuel cost, not municipal revenue</span>
+</div>
+<div class="impactrow">
+<div class="big" id="time">407.8K</div>
+<span>Person-hours of modeled time value</span>
+</div>
+<div class="impactrow">
+<div class="big" id="emissions">647</div>
+<span>Metric tons of CO₂ proxy, not measured emissions</span>
+</div>
+</div>
+</div>
+<div class="notice"><b>Interpretation:</b> This calculator multiplies a single observed-hour model difference by hypothetical equivalent sites and hours. Actual cities have different geometry, demand, safety constraints, vehicle mixes and equipment costs. It does not establish a real-world cost-benefit case.</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="eyebrow">03 / More evidence</div>
+<h2>Don't trust a single headline number.</h2>
+<div class="grid">
+<div class="panel light">
+<img class="chart" src="assets/economic_sensitivity.png" alt="Value-of-time sensitivity analysis">
+<p>Sensitivity of the modeled time value to the hourly value placed on travel time.</p>
+</div>
+<div class="panel light">
+<img class="chart" src="assets/emissions_scale.png" alt="Illustrative avoided tailpipe emissions across site counts">
+<p>Conditional CO₂ proxy derived from avoided idling assumptions, not directly measured emissions.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="eyebrow">04 / Full study</div>
+<h2>Read the methodology. Check the limitations.</h2>
+<p>Includes the Evanston observations, mathematical derivations, fixed and adaptive control comparisons, nine hypothetical road-geometry scenarios, and the additional economic sensitivity appendix.</p>
+<div class="buttons">
+<a class="btn" href="Daniel_Melnikov_Traffic_Research_Full.pdf">Download complete research PDF</a>
+</div>
+<p class="assumptions">Sources for economic assumptions: US DOT 2025 Benefit-Cost Analysis Guidance ($21.10/person-hour, 2023 USD); US EPA greenhouse gas equivalencies (8.887 kg CO₂/gallon). Occupancy, fuel use, fuel price, and scale are assumptions. This is independent student research, not a City of Evanston pilot.</p>
+</div>
+</section>
+</main>
+
+<div class="wrap">
+<footer>Daniel Melnikov · Independent research · <a href="https://github.com/danielzmelnikov-ui">GitHub</a></footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+function compact(n){
+return n>=1e6?(n/1e6).toFixed(2)+'M':n>=1000?(n/1000).toFixed(1)+'K':Math.round(n).toLocaleString()
+}
+function calc(){
+const sites=+$('sites').value,hours=+$('hours').value,vot=+$('vot').value,occ=+$('occ').value;
+const delta=(199626-115736)/3600;
+const vehicleHours=delta*sites*hours;
+const personHours=vehicleHours*occ;
+const money=personHours*vot+vehicleHours*.25*3.5;
+const co2=vehicleHours*.25*8.887/1000;
+$('sites-v').textContent=sites;
+$('hours-v').textContent=hours;
+$('vot-v').textContent='$'+vot.toFixed(2);
+$('occ-v').textContent=occ.toFixed(1);
+$('money').textContent='$'+compact(money);
+$('time').textContent=compact(personHours);
+$('emissions').textContent=compact(co2);
+}
+['sites','hours','vot','occ'].forEach(id=>$(id).addEventListener('input',calc));
+calc();
+</script>
+</body>
+</html>
